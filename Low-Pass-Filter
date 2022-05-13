@@ -1,0 +1,9 @@
+Fs = 100;
+T = 1/Fs;
+t = 0:T:1-T;
+s = sin(2*pi*10*t);
+noise = 0.5*randn(size(t));
+x = s + noise;
+plot(x)
+d = designfilt('lowpassfir', 'FilterOrder', 5, 'CutoffFrequency', 11, 'SampleRate', Fs);
+y = filter(d, x);
