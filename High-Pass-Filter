@@ -1,0 +1,5 @@
+%high pass filter
+w=0:0.01:500;
+G=(j*w)./(1+j*w);
+semilogx(w,abs(G));
+grid on;
